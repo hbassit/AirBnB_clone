@@ -14,6 +14,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(base_obj.created_at, datetime)
         self.assertIsInstance(base_obj.updated_at, datetime)
 
+        base_obj_2 = BaseModel(name="second", color="Blue")
+        self.assertIsInstance(base_obj_2, BaseModel)
+        self.assertEqual(base_obj_2.name, "second")
+        self.assertEqual(base_obj_2.color, "Blue")
+
     def test_save(self):
         base_obj = BaseModel()
         check1 = base_obj.updated_at
